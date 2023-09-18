@@ -1,23 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from .models import hostel_details
 
 
-# Create your views here.
 def index(request):
-    current_user = request.user
-    context = {
-        "username": current_user.username,
-        "first_name": current_user.first_name,
-        "last_name": current_user.last_name,
-        "email": current_user.email,
-    }
-    return render(request, "booking/index.html", context)
+    if not request.user.is_authenticated:
+        # current_user = request.user
+        return HttpResponseRedirect(reverse("login"))
+    # temp = hostel_details.objects.all()
+    # print(temp)
+    return render(request, "booking/index.html")
 
 
-"""
-if request.user.is_authenticated:
-    # Do something for authenticated users.
-else:
-    # Do something for anonymous users.
-"""
+def details(request):
+    room_details = hostel_details.objects.all()
+    return render(request, "booking/details.html", {"room_details": room_details})
