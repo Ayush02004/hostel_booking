@@ -1,0 +1,17 @@
+{% extends 'booking/layout.html' %}
+
+{% block body %}
+    {{ request.user.username}}
+{% if room_details %}
+    <ul>
+    <li>cooling:{{ room_details.cooling}}</li>
+    <li>block:{{ room_details.block }}</li>
+    <li>sharing:{{ room_details.sharing }}</li>
+    <li>bathroom:{{ room_details.bathroom}}</li>
+    <li>paid:{{ room_details.price }}</li>
+    </ul>
+{% else %}
+    <p>no Transactions</p>
+{% endif %}
+
+{% endblock %}

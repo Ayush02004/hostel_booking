@@ -1,0 +1,59 @@
+{% extends 'booking/layout.html' %}
+
+{% block body %}
+<form action="{% url 'booking' %}" method="post" name="booking" id="booking">
+    {% csrf_token %}
+    <input type="hidden" name="form_type" value="booking">
+    <p>
+        <label for="hostel_block">hostel block</label>
+        <select id="hostel_block" name="hostel_block">
+            {% for x in hostel_block %}
+            <option value="{{ x }}">{{ x }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label for="cooling">cooling</label>
+        <select id="cooling" name="cooling">
+            {% for x in cooling %}
+            <option value="{{ x }}">{{ x }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label for="sharing">sharing</label>
+        <select id="sharing" name="sharing">
+            {% for x in sharing %}
+            <option value="{{ x }}">{{ x }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label for="bathroom">bathroom</label>
+        <select id="bathroom" name="bathroom">
+            {% for x in bathroom %}
+            <option value="{{ x }}">{{ x }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <input type="submit" value="book">
+</form>
+    <br>
+    <br>
+
+    {% if room %}
+
+        pay: {{ room.price }}
+        <br>
+        <br>
+        <form action="{% url 'booking' %}" method="post" name="payment">
+            {% csrf_token %}
+            <input type="hidden" name="room_id" value="{{ room.id }}">
+            <input type="hidden" name="form_type" value="payment">
+            <label for="payment">Enter your UPI id</label>
+            <input id="payment" name="payment">
+            <input type="submit" value="pay">
+        </form>
+    {% endif %}
+{% endblock %}

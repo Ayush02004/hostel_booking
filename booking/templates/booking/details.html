@@ -1,0 +1,23 @@
+{% extends 'booking/layout.html' %}
+
+{% block body %}
+<table border='1' class="table">
+  <tr>
+      <th>Block</th>
+      <th>Cooling</th>
+      <th>Sharing</th>
+      <th>Bathroom</th>
+      <th>price</th>
+  </tr>
+  {% for x in room_details %}
+    <tr>
+        <td>{{ x.block }}</td>
+        <td>{{ x.cooling }}</td>
+        <td>{{ x.sharing }}</td>
+        <td>{{ x.bathroom }}</td>
+        <td>Rs. {{ x.price }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
