@@ -5,11 +5,23 @@
     {% if message %}
         <div>{{message}}</div>
     {% endif %}
-
-    <form action="{% url 'login' %}" method="post">
+    <style>
+        body {
+            background-color: 	rgb(0,255,255); /* Set your desired background color here */
+        }
+    </style>
+    <h1 style="margin-left:500px;font-size:50px;"><b>SRM INSTITUTE OF SCIENCE AND TECHNOLOGY</b></h1>
+    <form action="{% url 'login' %}" method="post" style="width: 500px;
+    margin-top:200px ;
+    margin-left:700px;
+    padding: 20px;
+    border:  solid black;
+    background-color: #f9f9f9">
+    <h2 style="margin-left:180px">Login</h2><br>
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username">
-        <input  type="password" name="password" placeholder="Password">
-        <input type="submit" value="Login">
+        <input type="text" name="username" placeholder="Username" style="width:450px"><br><br>
+        <input  type="password" name="password" placeholder="Password" style="width:450px"><br><br>
+        <input type="submit" value="Login" style="background-color:#4CAF50; margin-left:200px;border:solid black">
     </form>
+    <style>
 {% endblock %}

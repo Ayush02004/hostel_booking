@@ -1,7 +1,9 @@
 {% extends 'booking/layout.html' %}
 
 {% block body %}
-<form action="{% url 'booking' %}" method="post" name="booking" id="booking">
+<center>
+<form action="{% url 'booking' %}" method="post" name="booking" id="booking" style="border:solid black;background-color:rgb(211,211,211);width:800px;margin-left:100px;margin-top:300px;font-size:20px">
+    <h3>Booking</h3>
     {% csrf_token %}
     <input type="hidden" name="form_type" value="booking">
     <p>
@@ -12,6 +14,7 @@
             {% endfor %}
         </select>
     </p>
+
     <p>
         <label for="cooling">cooling</label>
         <select id="cooling" name="cooling">
@@ -20,6 +23,7 @@
             {% endfor %}
         </select>
     </p>
+
     <p>
         <label for="sharing">sharing</label>
         <select id="sharing" name="sharing">
@@ -28,6 +32,7 @@
             {% endfor %}
         </select>
     </p>
+
     <p>
         <label for="bathroom">bathroom</label>
         <select id="bathroom" name="bathroom">
@@ -36,6 +41,7 @@
             {% endfor %}
         </select>
     </p>
+
 
     <input type="submit" value="book">
 </form>
@@ -55,5 +61,6 @@
             <input id="payment" name="payment">
             <input type="submit" value="pay">
         </form>
+        <center>
     {% endif %}
 {% endblock %}
