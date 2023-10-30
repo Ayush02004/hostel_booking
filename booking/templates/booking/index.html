@@ -1,21 +1,37 @@
 {% extends "booking/layout.html" %}
-
-
+{% load static %}
 {% block body %}
-   <form style="max-width: 600px;
-   margin-top:200px ;
-   margin-left:700px;
-   padding: 20px;
-   border:  solid black;
-   background-color: #f9f9f9">
-    <ul>
-        <li>Username: {{request.user.username}}</li>
-        <li>First Name: {{ request.user.first_name }}</li>
-        <li>Last Name: {{ request.user.last_name }}</li>
-        <li>Email: {{request.user.email}}</li>
-    </ul>
-    <a href="{% url 'logout' %}" style=" margin-left:200px;background-color:rgb(124, 252, 0)
-    ;border:1px solid black">Logout</a>
-</form>
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>User Details</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <td>Username:</td>
+                                <td>{{ request.user.username }}</td>
+                            </tr>
+                            <tr>
+                                <td>First Name:</td>
+                                <td>{{ request.user.first_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name:</td>
+                                <td>{{ request.user.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td>{{ request.user.email }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
