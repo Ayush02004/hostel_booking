@@ -1,23 +1,29 @@
 {% extends 'booking/layout.html' %}
 
 {% block body %}
-<table border='1' class="table">
-  <tr>
-      <th>Block</th>
-      <th>Cooling</th>
-      <th>Sharing</th>
-      <th>Bathroom</th>
-      <th>price</th>
-  </tr>
-  {% for x in room_details %}
-    <tr>
+<h4 class="mt-4 text-center text-primary">Room Details</h4>
+<div class="table-responsive mt-4">
+  <table class="table table-bordered table-striped mx-auto" style="max-width: 60%;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Block</th>
+        <th scope="col">Cooling</th>
+        <th scope="col">Sharing</th>
+        <th scope="col">Bathroom</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in room_details %}
+      <tr>
         <td>{{ x.block }}</td>
         <td>{{ x.cooling }}</td>
         <td>{{ x.sharing }}</td>
         <td>{{ x.bathroom }}</td>
         <td>Rs. {{ x.price }}</td>
-    </tr>
-  {% endfor %}
-</table>
-
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
