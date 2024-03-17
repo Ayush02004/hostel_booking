@@ -1,5 +1,5 @@
 To run the project you have to first install python and django.
-Then go the project directory and run "python manage.py runserver".
+Then go the project directory and run the command "python manage.py runserver" in the terminal.
 
 SignUp page:
 ![Screenshot 2024-03-17 211718](https://github.com/Ayush02004/hostel_booking/assets/122443505/cc9d9486-cf04-47f7-9dd9-7b9ebc587965)
