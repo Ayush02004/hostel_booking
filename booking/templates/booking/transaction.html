@@ -1,17 +1,32 @@
+
 {% extends 'booking/layout.html' %}
 
 {% block body %}
-    {{ request.user.username}}
-{% if room_details %}
-    <ul>
-    <li>cooling:{{ room_details.cooling}}</li>
-    <li>block:{{ room_details.block }}</li>
-    <li>sharing:{{ room_details.sharing }}</li>
-    <li>bathroom:{{ room_details.bathroom}}</li>
-    <li>paid:{{ room_details.price }}</li>
-    </ul>
-{% else %}
-    <p>no Transactions</p>
-{% endif %}
+{% comment %} {% if room_details %} {% endcomment %}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            Transaction Details for {{ request.user.username }}
+        </div>
+        <div class="card-body">
+            {% if room_details %}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Cooling:</strong> {{ room_details.cooling }}</li>
+                    <li class="list-group-item"><strong>Block:</strong> {{ room_details.block }}</li>
+                    <li class="list-group-item"><strong>Sharing:</strong> {{ room_details.sharing }}</li>
+                    <li class="list-group-item"><strong>Bathroom:</strong> {{ room_details.bathroom }}</li>
+                    <li class="list-group-item"><strong>Paid:</strong> {{ room_details.price }}</li>
+                </ul>
+            {% else %}
+                <h3 style="text-align:center; color: red;">No Transactions Yet</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% comment %} {% else %}
+<h3 style="text-align:center; color: red;">No Transactions</h3>
+{% endif %} {% endcomment %}
+
 
 {% endblock %}
+
